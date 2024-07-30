@@ -18,6 +18,12 @@ namespace DesafioProjetoHospedagem.Models
 
         public void CadastrarHospedes(List<Pessoa> hospedes)
         {
+            // Verificar se o número de hóspedes é maior que 2
+            if (hospedes.Count > 2)
+            {
+                throw new ArgumentException("Não é possível reservar para mais de 2 hóspedes.");
+            }
+
             // Verificar se a capacidade é maior ou igual ao número de hóspedes sendo recebido
             if (Suite.Capacidade >= hospedes.Count)
             {
